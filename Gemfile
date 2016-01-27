@@ -52,3 +52,6 @@ end
 # Bootstrap for CSS:
 gem 'bootstrap-sass', '~> 3.3.4.1'
 gem 'sprockets', '<= 2.11.0'
+
+# Simple Form:
+gem "simple_form"
