@@ -55,3 +55,6 @@ gem 'sprockets', '<= 2.11.0'
 
 # Simple Form:
 gem "simple_form"
+
+# Devise for authentication:
+gem "devise"
