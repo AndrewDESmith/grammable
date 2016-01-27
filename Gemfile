@@ -44,9 +44,11 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-# RSpec for testing:
 group :development, :test do
+  # RSpec for testing:
   gem 'rspec-rails', '~> 3.0'
+  # Factory Girl for dummy test data:
+  gem "factory_girl_rails", "~> 4.0"
 end
 
 # Bootstrap for CSS:
