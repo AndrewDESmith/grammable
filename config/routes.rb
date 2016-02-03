@@ -5,7 +5,7 @@ Grammable::Application.routes.draw do
 
   root "grams#index"
 
-  resources :grams, :only => [:new, :create, :show]
+  resources :grams, :only => [:new, :create, :show, :edit, :update]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
