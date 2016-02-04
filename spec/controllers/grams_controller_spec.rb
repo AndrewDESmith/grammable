@@ -2,7 +2,23 @@ require 'rails_helper'
 
 RSpec.describe GramsController, type: :controller do
   # The describe command sets up a grouping of tests.
-  describe "grams #update action" do
+  describe "grams#destroy action" do
+    it "should allow a user to destroy grams" do
+      gram = FactoryGirl.create(:gram)
+      delete :destroy, :id => gram.id
+      expect(response).to redirect_to root_path
+      # Fetch the record with the find_by_id method:
+      g = Gram.find_by_id(gram.id)
+      expect(g).to eq nil
+    end
+
+    it "should return a 404 message if we cannot find a gram with the id that is specified" do
+      delete :destroy, :id => "SPACEDUCK"
+      expect(response).to have_http_status(:not_found)
+    end
+  end
+
+  describe "grams#update action" do
     it "should allow users to successfully update grams" do
       gram = FactoryGirl.create(:gram, :message => "Initial Value")
       patch :update, :id => gram.id, :gram => { :message => "Changed" }
