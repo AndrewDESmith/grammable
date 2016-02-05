@@ -60,3 +60,10 @@ gem "simple_form"
 
 # Devise for authentication:
 gem "devise"
+
+# CarrierWave for image uploading:
+gem "carrierwave"
+
+# Figaro and fog for using AWS:
+gem "figaro"
+gem "fog", "~> 1.3.1"
