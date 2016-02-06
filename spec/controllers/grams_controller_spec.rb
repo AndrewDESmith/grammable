@@ -154,7 +154,13 @@ RSpec.describe GramsController, type: :controller do
       user = FactoryGirl.create(:user)
       sign_in user
 
-      post :create, :gram => { :message => "Hello!" }
+      post :create, :gram => {
+        :message => "Hello!",
+        # Simulate uploading a picture from the fixtures folder.
+        # Inside the specs themselves the fixture_file_upload method automatically looks inside the right spec/fixtures folder, unlike within factories.rb.
+        :picture => fixture_file_upload("/picture.jpg", "image/jpg")
+      }
+
       expect(response).to redirect_to root_path
 
       gram = Gram.last
